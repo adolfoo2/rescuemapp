@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *  'unsafe-inline'; media-src *" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>incidencia</title>
+        <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="./js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <style>
+        body { font-family: Roboto, sans-serif;}
+        .form-signin {width: 100%;max-width: 330px;padding: 15px;margin: 0 auto;}
+.form-signin .checkbox {font-weight: 400;}
+.form-signin .form-control {position: relative;box-sizing: border-box;height: auto;padding: 10px;font-size: 16px;}
+.form-signin .form-control:focus {z-index: 2;}
+.form-signin input[type="email"] {margin-bottom: -1px;border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
+.form-signin input[type="password"] {margin-bottom: 10px;border-top-left-radius: 0;border-top-right-radius: 0;}
+.width-100{width: 100;}  .width-100px{width: 100px;}  .height-70{height: 70;}  .height-70px{height: 70px;}.bgcolor-011b36{background-color: #011b36;}
+.bgcolor-E79764{background-color: #E79764; border-color:#E79764;}  .bgcolor-F8E08A{background-color: #F8E08A;}  
+.bgcolor-9A7D5F{background-color: #9A7D5F; border-color:#9A7D5F;}
+.linkd:hover { background-color: #9A7D5F; border-color:#9A7D5F;}
+.link:hover { background-color: #E79764; border-color:#E79764;}
+.btn-primary:hover {background-color: #E79764; border-color:#E79764;}
+.btn-primary {background-color: #E79764; border-color:#E79764;}
+.blanco-txt {color: #FFFFFF;}
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 80px;
+    cursor: pointer;
+}
+
+.loader {
+    position: absolute;
+  border: 16px solid #CCC9C2;
+  border-radius: 50%;
+  border-top: 16px solid #E79764;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  left: calc(50% - 60px);
+  top: calc(50% - 60px);
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+    </style>
+</head>
+<body>
+<div class="form-signin text-center  " style="" id="pantalla">        
+    <h2 class="" style="">LOGO RESCUEMAPP</h2>  
+    <h3 class="mb-4 " style="">Reportar incidente</h3>
+    <!--<img class="mb-4  width-100px height-70px " src="https://i.gyazo.com/f83a80e7c3ef0cdb238357bb959665e4.png" alt="" width="72" height="72">    
+    -->
+
+    <FORM NAME="formulario" ACTION="" >
+    <div class="image-upload">
+
+    <label for="fileinput">
+        <img id="imagen" src="img/Addphoto.svg"/>
+    </label>
+    <input id="fileinput" class="mb-4  width-100px height-70px " src="https://i.gyazo.com/f83a80e7c3ef0cdb238357bb959665e4.png" alt="" width="72" height="72">
+    <p id="msg" hidden type="file"></p>
+    <img src="img/logo.png" hidden id="photo" type="file"/>
+  </div>
+<div class="form-group " style="">
+    <label class="">Título: </label>
+  <textarea id='titulo' class="form-control " rows="1" style="" maxlength="50" placeholder="Máximo 50 caracteres."></textarea></div>  
+    
+    <select name="severidad" id = "severidad" class="btn blanco-txt dropdown-toggle dropdown-toggle-split bgcolor-9A7D5F" >
+        <option value="DEFAULT" selected>Severidad</option>
+        <option value="Muy alta" >Muy alta</option>
+        <option value="Alta">Alta</option> 
+        <option value="Media" >Media</option>  
+        <option value=">Baja" >Baja</option>  
+        <option value="Muy baja" >Muy baja</option> 
+    </select>
+    <br class=""> 
+    <br class=""> 
+    <select name="tipo" id = "tipo" class="btn blanco-txt dropdown-toggle dropdown-toggle-split bgcolor-9A7D5F" >
+        <option value="DEFAULT" selected>Tipo de incidente</option>
+        <option value="Accidente" >Accidente</option>
+        <option value="Falla operacional">Falla operacional</option> 
+        <option value="Daño ambiental" >Daño ambiental</option>  
+        <option value="Cuasi-accidente" >Cuasi-accidente</option>  
+    </select>
+
+            <br class="">  
+            <br class="">  
+            <select name="area" id = "area" class="btn blanco-txt dropdown-toggle dropdown-toggle-split bgcolor-9A7D5F" >
+                <option value="DEFAULT" selected>Unidad de Área</option>
+                <option value="Planta 1" >Planta 1</option>
+                <option value="Planta 2">Planta 2</option> 
+                <option value="Mina 1" >Mina 1</option>  
+                <option value="Mina 2" >Mina 2</option>  
+                <option value="Administración" >Administración</option>  
+            </select>
+            <br class=""> 
+            <br class=""> 
+  <div class="form-group " style="">
+      <label class="">Comentarios: </label>
+    <textarea id='descripcion' class="form-control " rows="2" style="" maxlength="200" placeholder="Máximo 200 caracteres. Sea conciso."></textarea></div>  
+<button class="btn btn-lg blanco-txt btn-block mt-4 bgcolor-E79764 link"  type="button" onClick="enviar(this.form)">Enviar</button>
+
+
+</FORM>
+
+<!--<button onclick="getLocation()">Encender GPS</button>-->
+
+<p id="demo" hidden></p>
+</div>
+
+<div class="loader" id="loadingGif" style="display:none"></div>
+
+  <img src="img/logo.png" hidden id="photo" />
+
+
+</body>
+<script>
+        var lat = 0;
+        var lng = 0;
+        var fileReady = false;
+ var x = document.getElementById("demo");
+
+/*function getLocation() {
+
+
+  navigator.geolocation.getCurrentPosition(geolocationSuccess,
+                                         [geolocationError],
+                                         [geolocationOptions]);
+
+
+
+}*/
+
+function showPosition(position) {
+  lat = position.coords.latitude;
+       lng = position.coords.longitude;
+
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+
+function report(state) { 
+  console.log('Permission ' + state);
+}
+
+function showPosition(position) {
+  alert(position.coords.latitude);
+}
+
+    function enviar(form){ 
+        if(localStorage.lat == 0){
+            alert('Imposible reportar: GPS desactivado o señal demasiado baja.')
+            window.location.href = 'index.html';
+        }else{
+        alert(localStorage.lat);
+        var user = firebase.auth().currentUser;
+        var userID = user.uid;
+        var tipo = form.tipo.value;
+        var area = form.area.value;
+        var titulo = form.titulo.value;
+        var severidad = form.severidad.value;
+        var descripcion = form.descripcion.value;
+        var fileButton = document.getElementById('fileinput');
+
+        var telefono = 0;
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var hh = today.getHours()
+        var min = today.getMinutes();
+        var time = today.getTime();
+        var fecha = mm + '/' + dd + '/' + yyyy;
+        var hora =  hh + ':' + min;
+        /*if(tipo =='DEFAULT' || area =='DEFAULT' || severidad =='DEFAULT' || titulo ==''){
+            alert("Complete todos los campos");
+        }else */if(fileReady == false){
+            alert("Agregue una foto");
+        }else{
+
+            //apago pantalla y enciendo gif
+            document.getElementById('pantalla').style.display = "none";
+            document.getElementById('loadingGif').style.display = "block";
+            //METER TODO EN LA BD Y STORAGE
+            //ID HARDCODEADA
+            var orgID = 'iXgLJTFqmtmJXmYmqXWc';
+            db.collection('org').doc(orgID).collection('reportes').add({
+                userID: userID,
+                telefono : telefono,
+                severidad : severidad,
+                descripcion : descripcion,
+                fecha : fecha,
+                hora : hora,
+                time : time,
+                titulo : titulo,
+                lat : localStorage.lat,
+                lng : localStorage.lng,
+                tipo:tipo,
+                area:area
+            }).then(function(docRef) {
+
+              /*fileUp = blobToFile(fileUp, "my-image.png");
+              alert(fileUp.type); 
+                ImageTools.resize(fileUp, {
+            width: 1600, // maximum width
+            height: 1200 // maximum height
+        }, function(blob, didItResize) {
+
+          alert(blob.size);   */
+      //Create a Storage Ref
+      var storageRef = firebase.storage().ref('/' + docRef.id);
+
+      //Upload file
+      var task = storageRef.put(fileUp);   
+
+      //Update Progress Bar 
+      task.on('state_changed', 
+
+      function progress(snapshot){
+     
+      },
+      function error(err){
+      },
+      function complete(){
+         console.log("FOTO SUBIDA");
+         document.getElementById('pantalla').style.display = "block";
+        document.getElementById('loadingGif').style.display = "none";
+         alert("Incidencia reportada con éxito");
+         window.location.href = 'incidencia.html';
+      }
+     
+    ); 
+  //}  
+        //});           
+})
+    }
+        }
+    }
+    var fileChanged = document.getElementById('fileinput');
+
+   //Listen for file 
+   fileChanged.addEventListener('change', function(e){
+    document.getElementById('imagen').src="img/Addphotocheck.svg";
+   })
+    </script> 
+
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-storage.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBcT8VeywM5josG6jtA5kqob8kzI26_Hew",
+    authDomain: "rescuemapp.firebaseapp.com",
+    databaseURL: "https://rescuemapp.firebaseio.com",
+    projectId: "rescuemapp",
+    storageBucket: "rescuemapp.appspot.com"
+  };
+  
+  firebase.initializeApp(config);
+
+  // make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+const settings = {/* your settings... */ timestampsInSnapshots: true};
+db.settings(settings);
+var storageRef = firebase.storage().ref();
+
+  var database = firebase.database();
+
+  // update firestore settings
+  db.settings({ timestampsInSnapshots: true });
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    
+  
+<!--<script type="text/javascript" src="js/ImageTools.js"></script>
+<script type="MIME" src="js/ImageTools.es6"></script>-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript">
+
+let app = {
+            init: function(){
+                document.getElementById('fileinput').addEventListener('click', app.takephoto);
+            },
+            takephoto: function(){
+                let opts = {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    sourceType: Camera.PictureSourceType.CAMERA,
+                    mediaType: Camera.MediaType.PICTURE,
+                    encodingType: Camera.EncodingType.JPEG,
+                    cameraDirection: Camera.Direction.BACK,
+                    targetWidth: 300,
+                    targetHeight: 400
+                };
+                
+                //navigator.camera.getPicture(app.ftw, app.wtf, opts);
+                navigator.camera.getPicture(function (imageUri) {
+                  if(localStorage.lat == 0){
+                    alert('Imposible reportar: GPS desactivado o señal demasiado baja.')
+                    window.location.href = 'index.html';
+                  }else{
+          window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
+             fileEntry.file(function (file) {
+                 var reader = new FileReader();
+                 reader.onloadend = function () {
+                          // This blob object can be saved to firebase
+                          var blob = new Blob([new Uint8Array(this.result)], { type: "image/jpeg" });             
+                          fileUp = blob  
+                document.getElementById('imagen').src="img/Addphotocheck.svg"; 
+                fileReady = true;
+                 };
+                 reader.readAsArrayBuffer(file); 
+              });
+          });
+                }
+       });
+
+            },
+
+        };
+        document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener('deviceready', app.init);
+
+
+
+auth.onAuthStateChanged(user => {
+    var user = firebase.auth().currentUser;
+    console.log(user.uid)
+    if(user.uid){}
+})
+
+/*function blobToFile(theBlob, fileName){
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
+}*/
+
+
+function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        localStorage.lng = position.coords.longitude;
+        localStorage.lat = position.coords.latitude;
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) { 
+        if(error.code == 1){
+
+          //window.location.href = 'incidencia.html'; 
+        }
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+</script>
+
+</html>
