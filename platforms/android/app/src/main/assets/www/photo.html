@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.uiconstructor.com/css/fonts.css">
+    <style>
+
+#olvidaste{
+
+    
+    color: #454545;}
+
+
+        body { font-family: Roboto, sans-serif;}
+        .form-signin {width: 100%;max-width: 330px;padding: 0px;margin: 0 auto;}
+.form-signin .checkbox {font-weight: 400;}
+.form-signin .form-control {position: relative;box-sizing: border-box;height: auto;padding: 10px;font-size: 16px;}
+.form-signin .form-control:focus {z-index: 2;}
+.form-signin input[type="email"] {margin-bottom: -1px;border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
+.form-signin input[type="password"] {margin-bottom: 10px;border-top-left-radius: 0;border-top-right-radius: 0;}.width-10{width: 10;}  .width-100{width: 100;}  .width-100px{width: 100px;}  .width-8000px{width: 8000px;}  .width-800px{width: 800px;}  .width-80px{width: 80px;}  .width-0px{width: 0px;}  .width-50{width: 50;}  .width-50percent{width: 50%;}  .width-500{width: 500;}  .width-500px{width: 500px;}  .width-50px{width: 50px;}  .width-1000px{width: 1000px;}  .width-px{width: px;}  .width-400px{width: 400px;}  .width-3px{width: 3px;}  .width-350px{width: 350px;}  .width-100percent{width: 100%;}.bgcolor-011b36{background-color: #011b36;}
+.bgcolor-E79764{background-color: #E79764; border-color:#E79764;}
+.link:hover { background-color: #E79764; border-color:#E79764;}
+    </style>
+    <title>Rescue mApp</title>
+</head>
+
+<body>
+    <body>
+          <FORM NAME="formulario" ACTION="" >
+          <div class="checkbox mb-3 ">    
+            <label class="">      
+            <!--<input type="checkbox" value="remember-me" class=""> Recordar contraseña
+            </label>  -->
+          </div>  
+          <input type="file" accept="image/*" capture="user" hidden>
+<input type="file" accept="image/*" capture="environment" >
+            <button id="capture" class="btn btn-lg btn-primary btn-block  bgcolor-E79764 link" type="button" ><span >Capturar</span></button>  
+            <p class="mt-5 mb-3 text-muted "></p>
+            
+          </div>
+          </FORM>
+
+          <!--<p><button id="btn" onClick="goto()">Take Picture</button></p>-->
+          <video id="player" controls autoplay  ></video>
+          <canvas id="canvas" width=300 height=300></canvas>
+          <script>/*
+            const player = document.getElementById('player');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            const captureButton = document.getElementById('capture');
+          
+            const constraints = {
+              video: true,
+            };
+          
+            captureButton.addEventListener('click', () => {
+              // Draw the video frame to the canvas.
+              context.drawImage(player, 0, 0, canvas.width, canvas.height);
+            });
+          
+            // Attach the video stream to the video element and autoplay.
+            navigator.mediaDevices.getUserMedia(constraints)
+              .then((stream) => {
+                player.srcObject = stream;
+              });*/
+          </script>
+          </body>
+        <script>
+function goto(){
+
+window.location.href = 'photo-index.html';
+
+}
+
+function recovery(){
+
+  window.location.href = 'recovery.html';
+
+}
+
+
+                function iniciar(form){
+                    var email = form.correo.value;
+                    var password = form.clave.value;
+
+  // log the user in
+  auth.signInWithEmailAndPassword(email, password).then(function(result) {
+    window.location.href = 'incidencia.html';
+  }).catch(function(error) {
+    
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert("La cláve es incorrecta o el usuario no existe."); 
+  });
+                }
+                </script> 
+                <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-storage.js"></script>
+                <script>
+                  // Initialize Firebase
+                  var config = {
+                    apiKey: "AIzaSyBcT8VeywM5josG6jtA5kqob8kzI26_Hew",
+                    authDomain: "rescuemapp.firebaseapp.com",
+                    databaseURL: "https://rescuemapp.firebaseio.com",
+                    projectId: "rescuemapp",
+                    storageBucket: "rescuemapp.appspot.com"
+                  };
+                  
+                  firebase.initializeApp(config);
+                
+                  // make auth and firestore references
+                  const auth = firebase.auth();
+                  const db = firebase.firestore();
+                const settings = {/* your settings... */ timestampsInSnapshots: true};
+                db.settings(settings);
+                var storageRef = firebase.storage().ref();
+                
+                  var database = firebase.database();
+                
+                  // update firestore settings
+                  db.settings({ timestampsInSnapshots: true });
+                </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                
+                    
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+
+        auth.onAuthStateChanged(user => {
+//DESLOGEAR
+        })
+    </script>
+
+</html>
