@@ -116,7 +116,7 @@ var mensaje = false;
 
   // log the user in
   auth.signInWithEmailAndPassword(email, password).then(function(result) {
-    window.location.href = 'recovery.html';
+    window.location.href = 'incidencia.html';
   }).catch(function(error) {
     
     var errorCode = error.code;
@@ -171,21 +171,22 @@ var mensaje = false;
         })
 
         document.addEventListener("deviceready", onDeviceReady, false);
+
         function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        //navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
     
 
     // onSuccess Geolocation
     //
-    function onSuccess(position) {
+    /*function onSuccess(position) {
         localStorage.lng = position.coords.longitude;
         localStorage.lat = position.coords.latitude;
     }
 
     function onError(error) {
     alert("Esta aplicación necesita su ubicación para realizar reportes. Active el GPS.");
-}
+}*/
 
 
     </script>
