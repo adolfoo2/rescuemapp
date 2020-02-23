@@ -107,27 +107,7 @@ function recovery(){
 localStorage.lng = 0
 localStorage.lat = 0
 var mensaje = false;
-                function iniciar(form){
-                  if(localStorage.lng!=0 || mensaje){
-                    alert(localStorage.lng)
-                    var email = form.correo.value;
-                    var password = form.clave.value;
-                    alert(localStorage.lng)
 
-  // log the user in
-  auth.signInWithEmailAndPassword(email, password).then(function(result) {
-    window.location.href = 'incidencia.html';
-  }).catch(function(error) {
-    
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    alert("La cláve es incorrecta o el usuario no existe."); 
-  });
-                }else{
-                  alert('Esta aplicación necesita su ubicación para realizar reportes. Active el GPS.')
-                  mensaje = true;
-                }
-              }
                 </script> 
                 <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
                 <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
@@ -166,6 +146,28 @@ var mensaje = false;
     <script type="text/javascript">
   
 
+  function iniciar(form){
+                  if(localStorage.lng!=0 || mensaje){
+                    alert(localStorage.lng)
+                    var email = form.correo.value;
+                    var password = form.clave.value;
+                    alert(localStorage.lng)
+
+  // log the user in
+  auth.signInWithEmailAndPassword(email, password).then(function(result) {
+    window.location.href = 'incidencia.html';
+  }).catch(function(error) {
+    
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert("La cláve es incorrecta o el usuario no existe."); 
+  });
+                }else{
+                  alert('Esta aplicación necesita su ubicación para realizar reportes. Active el GPS.')
+                  mensaje = true;
+                }
+              }
+
         auth.onAuthStateChanged(user => {
 //DESLOGEAR
         })
@@ -173,20 +175,20 @@ var mensaje = false;
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-        //navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
     
 
     // onSuccess Geolocation
     //
-    /*function onSuccess(position) {
+    function onSuccess(position) {
         localStorage.lng = position.coords.longitude;
         localStorage.lat = position.coords.latitude;
     }
 
     function onError(error) {
     alert("Esta aplicación necesita su ubicación para realizar reportes. Active el GPS.");
-}*/
+}
 
 
     </script>
