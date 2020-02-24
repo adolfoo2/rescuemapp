@@ -173,7 +173,7 @@ function report(state) {
 }
 
 function showPosition(position) {
-  alert(position.coords.latitude);
+  //alert(position.coords.latitude);
 }
 
     function enviar(form){ 
@@ -181,7 +181,7 @@ function showPosition(position) {
             alert('Imposible reportar: GPS desactivado o señal demasiado baja.')
             window.location.href = 'index.html';
         }else{
-        alert(localStorage.lat);
+        //alert(localStorage.lat);
         var user = firebase.auth().currentUser;
         var userID = user.uid;
         var tipo = form.tipo.value;
@@ -201,9 +201,9 @@ function showPosition(position) {
         var time = today.getTime();
         var fecha = mm + '/' + dd + '/' + yyyy;
         var hora =  hh + ':' + min;
-        /*if(tipo =='DEFAULT' || area =='DEFAULT' || severidad =='DEFAULT' || titulo ==''){
+        if(tipo =='DEFAULT' || area =='DEFAULT' || severidad =='DEFAULT' || titulo ==''){
             alert("Complete todos los campos");
-        }else */if(fileReady == false){
+        }else if(fileReady == false){
             alert("Agregue una foto");
         }else{
 

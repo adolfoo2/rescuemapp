@@ -148,10 +148,8 @@ var mensaje = false;
 
   function iniciar(form){
                   if(localStorage.lng!=0 || mensaje){
-                    alert(localStorage.lng)
                     var email = form.correo.value;
                     var password = form.clave.value;
-                    alert(localStorage.lng)
 
   // log the user in
   auth.signInWithEmailAndPassword(email, password).then(function(result) {
