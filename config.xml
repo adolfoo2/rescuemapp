@@ -8,10 +8,9 @@
         Rescue mApp
     </author>
     <content src="index.html" />
-    <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="12" />
+    <preference name="android-minSdkVersion" value="14" />
     <preference name="android-targetSdkVersion" value="28" />
 
 
