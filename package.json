@@ -26,12 +26,15 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-globalization": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-media": {}
+      "cordova-plugin-media": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-battery-status": {}
     }
   },
   "dependencies": {
     "cordova-android": "^8.1.0",
     "cordova-ios": "^5.1.1",
+    "cordova-plugin-battery-status": "^2.0.3",
     "cordova-plugin-compat": "^1.2.0"
   }
 }
