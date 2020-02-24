@@ -80,16 +80,13 @@
           <a id="olvidaste" href="#" title="Click to do something" href="#" onclick="recovery();return false;">¿Olvidaste/cambiar tu contraseña?</a>
           <div class="checkbox mb-3 ">    
             <label class="">      
-            <!--<input type="checkbox" value="remember-me" class=""> Recordar contraseña
-            </label>  -->
+
           </div>  
             <button class="btn btn-lg blanco-txt btn-block  bgcolor-E79764 link" type="button" onClick="iniciar(this.form)" ><span >Iniciar</span></button>  
             <p class="mt-5 mb-3 text-muted "></p>
           </FORM>        
           </div>
 
-
-          <!--<p><button id="btn" onClick="goto()">Take Picture</button></p>-->
           </body>
         <script>
 function goto(){
@@ -100,7 +97,7 @@ window.location.href = 'photo-index.html';
 
 function recovery(){
 
-  window.location.href = 'photo-index.html';
+  window.location.href = 'recovery.html';
 
 }
 
@@ -150,6 +147,8 @@ var mensaje = false;
                   if(localStorage.lng!=0 || mensaje){
                     var email = form.correo.value;
                     var password = form.clave.value;
+                    email = email.toLowerCase();
+                    email = email.trim();
 
   // log the user in
   auth.signInWithEmailAndPassword(email, password).then(function(result) {
