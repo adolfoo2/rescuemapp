@@ -30,6 +30,9 @@
     },
     "cordova-plugin-battery-status": {
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.phonegap.rescuemapp"
     }
   },
   "dependent_plugins": {

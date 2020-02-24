@@ -55,6 +55,10 @@
             {
               "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Permissions\"><param name=\"android-package\" value=\"com.android.plugins.Permissions\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -105,6 +109,9 @@
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
     },
     "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.phonegap.rescuemapp"
+    },
+    "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
     }
   },
@@ -384,6 +391,14 @@
       "clobbers": [
         "navigator.battery"
       ]
+    },
+    {
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -395,6 +410,7 @@
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-file-transfer": "1.5.1",
     "cordova-plugin-geolocation": "2.1.0",
-    "cordova-plugin-battery-status": "2.0.3"
+    "cordova-plugin-battery-status": "2.0.3",
+    "cordova-plugin-android-permissions": "1.0.2"
   }
 }
