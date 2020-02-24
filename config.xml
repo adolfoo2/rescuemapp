@@ -13,16 +13,26 @@
     <preference name="android-minSdkVersion" value="12" />
     <preference name="android-targetSdkVersion" value="28" />
 
-    <plugin name="cordova-plugin-camera" />
+
+    <plugin name="cordova-plugin-media-capture" source="npm" spec="2.0.0"/>
+
+    <plugin name="cordova-plugin-file-transfer" spec="~1.7.0" />
+
+    <plugin name="cordova-plugin-media" spec="~4.0.0" />
+
+    <plugin name="cordova-plugin-camera" source="npm" spec="~2.4.1" />
+
+
+
     <plugin name="cordova-plugin-compat" />
-     <plugin name="cordova-plugin-media-capture" />
+
     <plugin name="cordova-plugin-console"  />
     <plugin name="cordova-plugin-device" />
     <plugin name="cordova-plugin-device-motion" />
     <plugin name="cordova-plugin-device-orientation"  />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-file" />
-    <plugin name="cordova-plugin-file-transfer" />
+    <!--<plugin name="cordova-plugin-file" />-->
+
     
     <plugin name="cordova-plugin-geolocation"  />
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription" >
@@ -31,7 +41,7 @@
 </edit-config>
     <plugin name="cordova-plugin-globalization"  />
     <plugin name="cordova-plugin-inappbrowser"  />
-    <plugin name="cordova-plugin-media" />
+
     <plugin name="cordova-plugin-whitelist"  />
     <!--<plugin name="cordova-plugin-request-location-accuracy" spec="2.3.0" source="npm" />-->
     <platform name="android">
