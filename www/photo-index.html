@@ -63,14 +63,14 @@
                 },
                 takephoto: function(){
                     let opts = {
-                        quality: 80,
-                        destinationType: Camera.DestinationType.FILE_URI,
-                        sourceType: Camera.PictureSourceType.CAMERA,
-                        mediaType: Camera.MediaType.PICTURE,
-                        encodingType: Camera.EncodingType.JPEG,
-                        cameraDirection: Camera.Direction.BACK,
-                        targetWidth: 300,
-                        targetHeight: 400
+                        quality: 75,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        mediaType: Camera.MediaType.CAMERA,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 200,
+        targetHeight: 200,
+        saveToPhotoAlbum: true
                     };
                     
                     navigator.camera.getPicture(app.ftw, app.wtf, opts);
