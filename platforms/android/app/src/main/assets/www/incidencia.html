@@ -83,8 +83,6 @@
         <img id="imagen" src="img/Addphoto.svg"/>
     </label>
     <input id="fileinput" class="mb-4  width-100px height-70px " src="https://i.gyazo.com/f83a80e7c3ef0cdb238357bb959665e4.png" alt="" width="72" height="72">
-    <p id="msg" hidden type="file"></p>
-    <img src="img/logo.png" hidden id="photo" type="file"/>
   </div>
 <div class="form-group " style="">
     <label class="">Título: </label>
@@ -311,6 +309,7 @@ var storageRef = firebase.storage().ref();
   
 <!--<script type="text/javascript" src="js/ImageTools.js"></script>
 <script type="MIME" src="js/ImageTools.es6"></script>-->
+<!-- -->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
 
@@ -320,10 +319,10 @@ let app = {
             },
             takephoto: function(){
                 let opts = {
-                    quality: 50,
+                    quality: 60,
                     destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: Camera.PictureSourceType.CAMERA,
-                    mediaType: Camera.MediaType.PICTURE,
+                    mediaType: Camera.MediaType.PICTURE, //camera?
                     encodingType: Camera.EncodingType.JPEG,
                     cameraDirection: Camera.Direction.BACK,
                     targetWidth: 300,

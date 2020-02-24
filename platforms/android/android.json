@@ -5,15 +5,31 @@
   },
   "config_munge": {
     "files": {
+      "*-Info.plist": {
+        "parents": {
+          "NSLocationWhenInUseUsageDescription": [
+            {
+              "xml": "<string>Need location access to find things nearby </string>",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml"
+            }
+          ]
+        }
+      },
       "res/xml/config.xml": {
         "parents": {
           "/*": [
             {
-              "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
               "count": 1
             },
             {
-              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
               "count": 1
             },
             {
@@ -36,7 +52,15 @@
           "/*": [
             {
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-              "count": 2
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
             }
           ]
         }
@@ -44,13 +68,16 @@
     }
   },
   "installed_plugins": {
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.phonegap.rescuemapp"
-    },
     "cordova-plugin-console": {
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
     },
     "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.phonegap.rescuemapp"
+    },
+    "cordova-plugin-device-motion": {
+      "PACKAGE_NAME": "com.phonegap.rescuemapp"
+    },
+    "cordova-plugin-device-orientation": {
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
     },
     "cordova-plugin-dialogs": {
@@ -63,43 +90,51 @@
   "dependent_plugins": {},
   "modules": [
     {
-      "id": "cordova-plugin-camera.Camera",
-      "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "Camera"
-      ]
-    },
-    {
-      "id": "cordova-plugin-camera.CameraPopoverOptions",
-      "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "CameraPopoverOptions"
-      ]
-    },
-    {
-      "id": "cordova-plugin-camera.camera",
-      "file": "plugins/cordova-plugin-camera/www/Camera.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "navigator.camera"
-      ]
-    },
-    {
-      "id": "cordova-plugin-camera.CameraPopoverHandle",
-      "file": "plugins/cordova-plugin-camera/www/CameraPopoverHandle.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "CameraPopoverHandle"
-      ]
-    },
-    {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
       "clobbers": [
         "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-motion.Acceleration",
+      "file": "plugins/cordova-plugin-device-motion/www/Acceleration.js",
+      "pluginId": "cordova-plugin-device-motion",
+      "clobbers": [
+        "Acceleration"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-motion.accelerometer",
+      "file": "plugins/cordova-plugin-device-motion/www/accelerometer.js",
+      "pluginId": "cordova-plugin-device-motion",
+      "clobbers": [
+        "navigator.accelerometer"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-orientation.CompassError",
+      "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
+      "pluginId": "cordova-plugin-device-orientation",
+      "clobbers": [
+        "CompassError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-orientation.CompassHeading",
+      "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
+      "pluginId": "cordova-plugin-device-orientation",
+      "clobbers": [
+        "CompassHeading"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device-orientation.compass",
+      "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
+      "pluginId": "cordova-plugin-device-orientation",
+      "clobbers": [
+        "navigator.compass"
       ]
     },
     {
@@ -293,9 +328,10 @@
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-console": "1.0.7",
     "cordova-plugin-device": "1.1.7",
+    "cordova-plugin-device-motion": "1.2.5",
+    "cordova-plugin-device-orientation": "1.0.7",
     "cordova-plugin-dialogs": "1.2.1",
     "cordova-plugin-file": "6.0.2"
   }
