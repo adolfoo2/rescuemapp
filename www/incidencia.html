@@ -319,7 +319,7 @@ let app = {
             },
             takephoto: function(){
                 let opts = {
-                    quality: 60,
+                    quality: 50,
                     destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: Camera.PictureSourceType.CAMERA,
                     mediaType: Camera.MediaType.PICTURE, //camera?
@@ -375,7 +375,6 @@ auth.onAuthStateChanged(user => {
 
 function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        
     }
 
 
@@ -389,7 +388,10 @@ function onDeviceReady() {
     // onError Callback receives a PositionError object
     //
     function onError(error) { 
+        if(error.code == 1){
 
+          //window.location.href = 'incidencia.html'; 
+        }
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
