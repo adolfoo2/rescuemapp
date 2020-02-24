@@ -8,6 +8,7 @@
         Rescue mApp
     </author>
     <content src="index.html" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="12" />
     <preference name="android-targetSdkVersion" value="28" />
@@ -20,8 +21,8 @@
     <plugin name="cordova-plugin-device-motion" />
     <plugin name="cordova-plugin-device-orientation"  />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-file" source="npm" spec="~5.0.0"/>
-    <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.6.3" />
+    <plugin name="cordova-plugin-file" />
+    <plugin name="cordova-plugin-file-transfer" />
     
     <plugin name="cordova-plugin-geolocation"  />
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription" >
