@@ -83,8 +83,6 @@
         <img id="imagen" src="img/Addphoto.svg"/>
     </label>
     <input id="fileinput" class="mb-4  width-100px height-70px " src="https://i.gyazo.com/f83a80e7c3ef0cdb238357bb959665e4.png" alt="" width="72" height="72">
-    <p id="msg" hidden type="file"></p>
-    <img src="img/logo.png" hidden id="photo" type="file"/>
   </div>
 <div class="form-group " style="">
     <label class="">Título: </label>
@@ -324,7 +322,7 @@ let app = {
                     quality: 50,
                     destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: Camera.PictureSourceType.CAMERA,
-                    mediaType: Camera.MediaType.PICTURE,
+                    mediaType: Camera.MediaType.CAMERA, //camera?
                     encodingType: Camera.EncodingType.JPEG,
                     cameraDirection: Camera.Direction.BACK,
                     targetWidth: 300,
