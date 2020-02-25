@@ -192,5 +192,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "com.wezka.nativecamera": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-wezka-nativecamera"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

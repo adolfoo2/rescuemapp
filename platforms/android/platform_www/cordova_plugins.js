@@ -282,6 +282,38 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "cordova.plugins.permissions"
       ]
+    },
+    {
+      "id": "com.wezka.nativecamera.Camera",
+      "file": "plugins/com.wezka.nativecamera/www/CameraConstants.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "Camera"
+      ]
+    },
+    {
+      "id": "com.wezka.nativecamera.CameraPopoverOptions",
+      "file": "plugins/com.wezka.nativecamera/www/CameraPopoverOptions.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "CameraPopoverOptions"
+      ]
+    },
+    {
+      "id": "com.wezka.nativecamera.camera",
+      "file": "plugins/com.wezka.nativecamera/www/Camera.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "navigator.camera"
+      ]
+    },
+    {
+      "id": "com.wezka.nativecamera.CameraPopoverHandle",
+      "file": "plugins/com.wezka.nativecamera/www/CameraPopoverHandle.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "CameraPopoverHandle"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -294,6 +326,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-file-transfer": "1.5.1",
     "cordova-plugin-geolocation": "2.1.0",
     "cordova-plugin-battery-status": "2.0.3",
-    "cordova-plugin-android-permissions": "1.0.2"
+    "cordova-plugin-android-permissions": "1.0.2",
+    "com.wezka.nativecamera": "0.1.2"
   };
 });

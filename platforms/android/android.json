@@ -59,6 +59,10 @@
             {
               "xml": "<feature name=\"Permissions\"><param name=\"android-package\" value=\"com.android.plugins.Permissions\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"com.wezka.nativecamera.NativeCameraLauncher\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -68,7 +72,7 @@
           "/*": [
             {
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-              "count": 2
+              "count": 3
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
@@ -76,6 +80,20 @@
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-feature android:name=\"android.hardware.camera.autofocus\" android:required=\"false\" />",
+              "count": 1
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<activity android:label=\"nativecameraplugin\" android:name=\"com.wezka.nativecamera.CameraActivity\" android:screenOrientation=\"portrait\" android:theme=\"@android:style/Theme.NoTitleBar.Fullscreen\"></activity>",
               "count": 1
             }
           ]
@@ -112,6 +130,9 @@
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
     },
     "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.phonegap.rescuemapp"
+    },
+    "com.wezka.nativecamera": {
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
     }
   },
@@ -399,6 +420,38 @@
       "clobbers": [
         "cordova.plugins.permissions"
       ]
+    },
+    {
+      "id": "com.wezka.nativecamera.Camera",
+      "file": "plugins/com.wezka.nativecamera/www/CameraConstants.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "Camera"
+      ]
+    },
+    {
+      "id": "com.wezka.nativecamera.CameraPopoverOptions",
+      "file": "plugins/com.wezka.nativecamera/www/CameraPopoverOptions.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "CameraPopoverOptions"
+      ]
+    },
+    {
+      "id": "com.wezka.nativecamera.camera",
+      "file": "plugins/com.wezka.nativecamera/www/Camera.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "navigator.camera"
+      ]
+    },
+    {
+      "id": "com.wezka.nativecamera.CameraPopoverHandle",
+      "file": "plugins/com.wezka.nativecamera/www/CameraPopoverHandle.js",
+      "pluginId": "com.wezka.nativecamera",
+      "clobbers": [
+        "CameraPopoverHandle"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -411,6 +464,7 @@
     "cordova-plugin-file-transfer": "1.5.1",
     "cordova-plugin-geolocation": "2.1.0",
     "cordova-plugin-battery-status": "2.0.3",
-    "cordova-plugin-android-permissions": "1.0.2"
+    "cordova-plugin-android-permissions": "1.0.2",
+    "com.wezka.nativecamera": "0.1.2"
   }
 }

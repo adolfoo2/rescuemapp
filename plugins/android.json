@@ -33,6 +33,9 @@
     },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "com.phonegap.rescuemapp"
+    },
+    "com.wezka.nativecamera": {
+      "PACKAGE_NAME": "com.phonegap.rescuemapp"
     }
   },
   "dependent_plugins": {
