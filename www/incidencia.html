@@ -70,7 +70,7 @@
     </style>
 </head>
 <body>
-<div class="form-signin text-center  " style="" id="pantalla">        
+<div class="form-signin text-center  " style="" id="pantalla" >        
     <h2 class="" style="">LOGO RESCUEMAPP</h2>  
     <h3 class="mb-4 " style="">Reportar incidente</h3>
     <!--<img class="mb-4  width-100px height-70px " src="https://i.gyazo.com/f83a80e7c3ef0cdb238357bb959665e4.png" alt="" width="72" height="72">    
@@ -93,7 +93,7 @@
         <option value="Muy alta" >Muy alta</option>
         <option value="Alta">Alta</option> 
         <option value="Media" >Media</option>  
-        <option value=">Baja" >Baja</option>  
+        <option value="Baja" >Baja</option>  
         <option value="Muy baja" >Muy baja</option> 
     </select>
     <br class=""> 
@@ -110,11 +110,17 @@
             <br class="">  
             <select name="area" id = "area" class="btn blanco-txt dropdown-toggle dropdown-toggle-split bgcolor-9A7D5F" >
                 <option value="DEFAULT" selected>Unidad de Área</option>
-                <option value="Planta 1" >Planta 1</option>
-                <option value="Planta 2">Planta 2</option> 
-                <option value="Mina 1" >Mina 1</option>  
-                <option value="Mina 2" >Mina 2</option>  
-                <option value="Administración" >Administración</option>  
+                <option value="Administración y Logística" >Administración y Logística</option>
+                <option value="Planta Chancado">Planta Chancado</option> 
+                <option value="Planta SX-EW" >Planta SX-EW</option>  
+                <option value="Pilas de Lixiviación." >Pilas de Lixiviación.</option>  
+                <option value="Laboratorio" >Laboratorio</option>  
+                <option value="Mantenimiento Planta" >Mantenimiento Planta</option>  
+                <option value="Camino Mina Planta" >Camino Mina Planta</option>  
+                <option value="Operación Superficial" >Operación Superficial</option>  
+                <option value="Operación Subterránea" >Operación Subterránea</option>  
+                <option value="Mantenimiento Mina" >Mantenimiento Mina</option>  
+                <option value="Trayecto" >Trayecto</option>  
             </select>
             <br class=""> 
             <br class=""> 
@@ -340,7 +346,6 @@ let app = {
                     console.log('resolviendo foto tomada')
           window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
             console.log('obteniendo file')
-            alert('obteniendo file')
              fileEntry.file(function (file) {
                  var reader = new FileReader();
                  reader.onloadend = function () {
@@ -367,7 +372,6 @@ let app = {
 
 auth.onAuthStateChanged(user => {
     var user = firebase.auth().currentUser;
-    console.log(user.uid)
     if(user.uid){}
 })
 

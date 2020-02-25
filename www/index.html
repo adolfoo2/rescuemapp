@@ -64,13 +64,39 @@
 .btn-primary:hover {background-color: #E79764; border-color:#E79764;}
 .btn-primary {background-color: #E79764; border-color:#E79764;}
 .blanco-txt {color: #FFFFFF;}
+
+
+.loader {
+    position: absolute;
+  border: 16px solid #CCC9C2;
+  border-radius: 50%;
+  border-top: 16px solid #E79764;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  left: calc(50% - 60px);
+  top: calc(50% - 60px);
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
     </style> 
     <title>Rescue mApp</title>
 </head>
 
-<body>
     <body>
-        <div class="form-signin  " style="">  <img class="mb-4  text-center width-100percent " src="" alt="" width="72" height="72" style="">    
+        <div  id="pantalla" class="form-signin  " style="display:none">  <img class="mb-4  text-center width-100percent " src="" alt="" width="72" height="72" style="">    
           <FORM NAME="formulario" ACTION="" >
           <label for="correo" class="sr-only ">Correo</label>  
           <h1 class="h3 mb-3 font-weight-normal  text-center " style="">Iniciar sesión</h1>
@@ -86,6 +112,7 @@
             <p class="mt-5 mb-3 text-muted "></p>
           </FORM>        
           </div>
+          <div class="loader" id="loadingGif" style="display:block"></div>
 
           </body>
         <script>
@@ -150,11 +177,17 @@ var mensaje = false;
                     email = email.toLowerCase();
                     email = email.trim();
 
+            //apago pantalla y enciendo gif
+            document.getElementById('pantalla').style.display = "none";
+            document.getElementById('loadingGif').style.display = "block";
+
   // log the user in
   auth.signInWithEmailAndPassword(email, password).then(function(result) {
     window.location.href = 'incidencia.html';
   }).catch(function(error) {
-    
+                //enciendo pantalla y apago gif
+            document.getElementById('pantalla').style.display = "block";
+            document.getElementById('loadingGif').style.display = "none";
     var errorCode = error.code;
     var errorMessage = error.message;
     alert("La cláve es incorrecta o el usuario no existe."); 
@@ -164,10 +197,27 @@ var mensaje = false;
                   mensaje = true;
                 }
               }
-
-        auth.onAuthStateChanged(user => {
-//DESLOGEAR
-        })
+              auth.onAuthStateChanged(user => {
+          if (user) {
+            var tipo = db.collection("usuarios").doc(user.uid);
+            window.location.href = "incidencia.html";
+/*
+            tipo.get().then(function(doc) {
+              if(doc.data().tipo == 'rb'){
+              }else if(doc.data().tipo == 'junta' || doc.data().tipo == 'domicilio' || doc.data().tipo == 'local'){
+                window.location.href = "retiros.html";
+              }else{
+                window.location.href = "home.html";
+              }
+            })
+            */
+          } 
+          else{
+                            //enciendo pantalla y apago gif
+                            document.getElementById('pantalla').style.display = "block";
+            document.getElementById('loadingGif').style.display = "none";
+          } 
+        });
 
         document.addEventListener("deviceready", onDeviceReady, false);
 
