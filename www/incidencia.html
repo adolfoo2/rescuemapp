@@ -351,6 +351,7 @@ let app = {
                  var reader = new FileReader();
                  reader.onloadend = function () {
                           // This blob object can be saved to firebase
+                          alert('FOTO TOMADA, CONVIRTIENDO A BLOB')
                           var blob = new Blob([new Uint8Array(this.result)], { type: "image/jpeg" });             
                           fileUp = blob  
                 document.getElementById('imagen').src="img/Addphotocheck.svg"; 
@@ -376,12 +377,6 @@ auth.onAuthStateChanged(user => {
     if(user.uid){}
 })
 
-/*function blobToFile(theBlob, fileName){
-    //A Blob() is almost a File() - it's just missing the two properties below which we will add
-    theBlob.lastModifiedDate = new Date();
-    theBlob.name = fileName;
-    return theBlob;
-}*/
 
 
 function onDeviceReady() {
