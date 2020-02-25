@@ -318,7 +318,7 @@ let app = {
                 document.getElementById('fileinput').addEventListener('click', app.takephoto);
             },
             takephoto: function(){
-                let opts = {
+                /*let opts = {
                     quality: 50,
                     destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: Camera.PictureSourceType.CAMERA,
@@ -327,7 +327,18 @@ let app = {
                     cameraDirection: Camera.Direction.BACK,
                     targetWidth: 300,
                     targetHeight: 400
-                };
+                };*/
+
+                let opts = { 
+                  quality : 75, 
+                  destinationType : navigator.camera.DestinationType.FILE_URI, 
+                  sourceType : navigator.camera.PictureSourceType.CAMERA, 
+                  encodingType: Camera.EncodingType.JPEG, 
+                  targetWidth: 300, 
+                  targetHeight: 300,
+                  cameraDirection: Camera.Direction.BACK, 
+                  popoverOptions: CameraPopoverOptions, 
+                  saveToPhotoAlbum: false }
                 
                 //navigator.camera.getPicture(app.ftw, app.wtf, opts);
                 navigator.camera.getPicture(function (imageUri) {
