@@ -318,7 +318,7 @@ let app = {
                 document.getElementById('fileinput').addEventListener('click', app.takephoto);
             },
             takephoto: function(){
-                /*let opts = {
+                let opts = {
                     quality: 50,
                     destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: Camera.PictureSourceType.CAMERA,
@@ -327,31 +327,25 @@ let app = {
                     cameraDirection: Camera.Direction.BACK,
                     targetWidth: 300,
                     targetHeight: 400
-                };*/
-
-                let opts = { 
-                  quality : 75, 
-                  destinationType : navigator.camera.DestinationType.FILE_URI, 
-                  sourceType : navigator.camera.PictureSourceType.CAMERA, 
-                  encodingType: Camera.EncodingType.JPEG, 
-                  targetWidth: 300, 
-                  targetHeight: 300,
-                  cameraDirection: Camera.Direction.BACK, 
-                  popoverOptions: CameraPopoverOptions, 
-                  saveToPhotoAlbum: false }
+                };
+                
                 
                 //navigator.camera.getPicture(app.ftw, app.wtf, opts);
                 navigator.camera.getPicture(function (imageUri) {
+                  console.log('tomando foto')
                   if(localStorage.lat == 0){
                     alert('Imposible reportar: GPS desactivado o señal demasiado baja.')
                     window.location.href = 'index.html';
                   }else{
+                    console.log('resolviendo foto tomada')
           window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
+            console.log('obteniendo file')
+            alert('obteniendo file')
              fileEntry.file(function (file) {
                  var reader = new FileReader();
                  reader.onloadend = function () {
+                  console.log('convirtiendo a blob')
                           // This blob object can be saved to firebase
-                          alert('FOTO TOMADA, CONVIRTIENDO A BLOB')
                           var blob = new Blob([new Uint8Array(this.result)], { type: "image/jpeg" });             
                           fileUp = blob  
                 document.getElementById('imagen').src="img/Addphotocheck.svg"; 
@@ -377,6 +371,12 @@ auth.onAuthStateChanged(user => {
     if(user.uid){}
 })
 
+/*function blobToFile(theBlob, fileName){
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
+}*/
 
 
 function onDeviceReady() {
