@@ -353,10 +353,9 @@ let app = {
                           // This blob object can be saved to firebase
                           var blob = new Blob([new Uint8Array(this.result)], { type: "image/jpeg" });             
                           fileUp = blob  
-
+                          document.getElementById('imagen').src="img/Addphotocheck.svg"; 
+                          fileReady = true;
                  };
-                 document.getElementById('imagen').src="img/Addphotocheck.svg"; 
-                 fileReady = true;
                  reader.readAsArrayBuffer(file); 
               });
           });
