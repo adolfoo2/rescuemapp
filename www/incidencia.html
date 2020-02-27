@@ -345,17 +345,18 @@ let app = {
                   }else{
                     console.log('resolviendo foto tomada')
           window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
-            console.log('obteniendo file')
+            alert('obteniendo file')
              fileEntry.file(function (file) {
                  var reader = new FileReader();
                  reader.onloadend = function () {
-                  console.log('convirtiendo a blob')
+                  alert('convirtiendo a blob')
                           // This blob object can be saved to firebase
                           var blob = new Blob([new Uint8Array(this.result)], { type: "image/jpeg" });             
                           fileUp = blob  
-                document.getElementById('imagen').src="img/Addphotocheck.svg"; 
-                fileReady = true;
+
                  };
+                 document.getElementById('imagen').src="img/Addphotocheck.svg"; 
+                 fileReady = true;
                  reader.readAsArrayBuffer(file); 
               });
           });
