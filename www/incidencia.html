@@ -195,6 +195,7 @@ function showPosition(position) {
         var titulo = form.titulo.value;
         var severidad = form.severidad.value;
         var descripcion = form.descripcion.value;
+        var estado = 0;
         var fileButton = document.getElementById('fileinput');
 
         var telefono = 0;
@@ -231,7 +232,8 @@ function showPosition(position) {
                 lat : localStorage.lat,
                 lng : localStorage.lng,
                 tipo:tipo,
-                area:area
+                area:area,
+                estado:estado
             }).then(function(docRef) {
 
               /*fileUp = blobToFile(fileUp, "my-image.png");
