@@ -60,18 +60,25 @@
 .form-signin .form-control:focus {z-index: 2;}
 .form-signin input[type="email"] {margin-bottom: -1px;border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
 .form-signin input[type="password"] {margin-bottom: 10px;border-top-left-radius: 0;border-top-right-radius: 0;}.width-10{width: 10;}  .width-100{width: 100;}  .width-100px{width: 100px;}  .width-8000px{width: 8000px;}  .width-800px{width: 800px;}  .width-80px{width: 80px;}  .width-0px{width: 0px;}  .width-50{width: 50;}  .width-50percent{width: 50%;}  .width-500{width: 500;}  .width-500px{width: 500px;}  .width-50px{width: 50px;}  .width-1000px{width: 1000px;}  .width-px{width: px;}  .width-400px{width: 400px;}  .width-3px{width: 3px;}  .width-350px{width: 350px;}  .width-100percent{width: 100%;}.bgcolor-011b36{background-color: #011b36;}
-.bgcolor-E79764{background-color: #E79764; border-color:#E79764;}
-.link:hover { background-color: #E79764; border-color:#E79764;}
-.btn-primary:hover {background-color: #E79764; border-color:#E79764;}
-.btn-primary {background-color: #E79764; border-color:#E79764;}
+.bgcolor-E79764{background-color: #F46F0C; border-color:#F46F0C;}
+.link:hover { background-color: #F46F0C; border-color:#F46F0C;}
+.btn-primary:hover {background-color: #F46F0C; border-color:#F46F0C;}
+.btn-primary {background-color: #F46F0C; border-color:#F46F0C;}
 .blanco-txt {color: #FFFFFF;}
+
+
+.bgcolor-A5A5A5{background-color: #A5A5A5; border-color:#A5A5A5;}
+.link2:hover { background-color: #A5A5A5; border-color:#A5A5A5;}
+
+
     </style>
     <title>Rescue mApp</title>
 </head>
 
 <body>
     <body>
-        <div class="form-signin  " style="">  <img class="mb-4  text-center width-100percent " src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" style="">    
+        <div class="form-signin  " style="">  
+          <img class="mb-4  text-center width-100percent " src="img/LogotipoRescuemapp300x70.png" alt="" width="300" height="70" style="">    
           <FORM NAME="formulario" ACTION="" >
           <label for="correo" class="sr-only ">Correo</label>  
           <h1 class="h3 mb-3 font-weight-normal  text-center " style="">Recuperar/cambiar contraseña</h1>
@@ -80,10 +87,14 @@
             <label class="">      
 
           </div>  
-            <button class="btn btn-lg blanco-txt btn-block  bgcolor-E79764 link" type="button" onClick="recovery(this.form)" ><span >Ir</span></button>  
+            <button class="btn btn-lg blanco-txt btn-block  bgcolor-E79764 link" type="button" onClick="recovery(this.form)" ><span >ENVIAR</span></button>  
+            <button class="btn btn-lg blanco-txt btn-block  bgcolor-A5A5A5 link2" type="button" onClick="back()" ><span >VOLVER</span></button>  
+
             <p class="mt-5 mb-3 text-muted "></p>
+            
           </div>
           </FORM>
+          
           </body>
         <script>
 
@@ -103,6 +114,10 @@ correo = correo.trim();
   console.log(error);
   alert("Correo incorrecto"); 
   });
+}
+
+function back(form){
+  window.location.href = 'index.html';
 }
 
                 function iniciar(form){
