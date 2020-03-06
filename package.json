@@ -37,6 +37,7 @@
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-battery-status": "^2.0.3",
     "cordova-plugin-compat": "^1.2.0",
-    "cordova-plugin-wezka-nativecamera": "^1.0.0"
+    "cordova-plugin-wezka-nativecamera": "^1.0.0",
+    "jquery": "^3.4.1"
   }
 }
